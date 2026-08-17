@@ -1,0 +1,10 @@
+langchain
+langchain-groq
+langgraph
+fastapi
+uvicorn
+python-dotenv
+groq
+jinja2
+markupsafe
+requests

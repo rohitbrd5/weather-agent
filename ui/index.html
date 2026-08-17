@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather AI Voice Bot</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="chat-container">
+      <h1>Weather Voice Bot</h1>
+      <div class="chat-box" id="chat-box">
+        <div class="message agent">
+          <div class="message-bubble">
+            Hello! I'm your Weather Voice Bot. How can I help you today?
+          </div>
+        </div>
+      </div>
+      <div class="input-area">
+        <button id="mic-button" class="mic-button"></button>
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Type or speak your query..."
+          autocomplete="off"
+        />
+        <button type="submit" id="send-button">Send</button>
+      </div>
+      <div class="voice-status" id="voice-status">Tap mic to speak</div>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>

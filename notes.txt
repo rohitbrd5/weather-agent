@@ -1,0 +1,77 @@
+D:\repo\weather-agent\weather-agent>python -m uv venv
+Using CPython 3.12.14
+Creating virtual environment at: .venv
+Activate with: .venv\Scripts\activate
+D:\repo\weather-agent\weather-agent>.venv\Scripts\activate
+(weather-agent) D:\repo\weather-agent\weather-agent>pip install -r requirements.txt
+(weather-agent) D:\repo\weather-agent\weather-agent>.venv\Scripts\activate
+(weather-agent) D:\repo\weather-agent\weather-agent>python -m ensurepip --upgrade
+Looking in links: c:\Users\PRATIK~1\AppData\Local\Temp\tmpa9byq99a
+Processing c:\users\pratik~1\appdata\local\temp\tmpa9byq99a\pip-25.0.1-py3-none-any.whl
+Installing collected packages: pip
+Successfully installed pip-25.0.1
+
+(weather-agent) D:\repo\weather-agent\weather-agent>python -m pip install -r requirements.txt
+
+
+
+Logs:
+INFO:     127.0.0.1:58231 - "OPTIONS /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58231 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49669 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53625 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57834 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53912 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54556 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55113 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58156 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52518 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "OPTIONS /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57783 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49669 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52695 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60640 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49669 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50588 - "OPTIONS /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50588 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64724 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50850 - "POST /chat HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [4048]
+
+(weather-agent) D:\repo\weather-agent\weather-agent>python main.py
+INFO:     Started server process [17752]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:54706 - "OPTIONS /chat HTTP/1.1" 200 OK
+
+[call_llm] --- ENTERED ---
+[call_llm] user_query: Bangalore
+[call_llm] messages in so far: 2
+[call_llm] has_tool_message: False
+[call_llm] Calling llm_with_tools.invoke(...)
+[call_llm] response.content: ''
+[call_llm] response.tool_calls: [{'name': 'get_current_weather', 'args': {'location': 'Bangalore'}, 'id': 'fc_7fd884c6-7ed8-4df4-a886-9c1fbae16ab3', 'type': 'tool_call'}]
+[call_llm] --- EXIT ---
+
+
+[call_tool] --- ENTERED ---
+[call_tool] tool_calls requested: [{'name': 'get_current_weather', 'args': {'location': 'Bangalore'}, 'id': 'fc_7fd884c6-7ed8-4df4-a886-9c1fbae16ab3', 'type': 'tool_call'}]
+[call_tool] Processing tool_call: name=get_current_weather, args={'location': 'Bangalore'}
+[call_tool] Tool output: {'location': 'Bangalore', 'temperature': '27.87°C', 'conditions': 'overcast clouds'}
+[call_tool] Final tool_output string: "{'location': 'Bangalore', 'temperature': '27.87°C', 'conditions': 'overcast clouds'}\n"
+[call_tool] --- EXIT ---
+
+
+[call_llm] --- ENTERED ---
+[call_llm] user_query: Bangalore
+[call_llm] messages in so far: 4
+[call_llm] has_tool_message: True
+[call_llm] -> Injecting summarize system prompt (post-tool pass)
+[call_llm] Calling llm_with_tools.invoke(...)
+[call_llm] response.content: 'The current weather in Bangalore is 27.87\u202f°C with overcast clouds.'
+[call_llm] response.tool_calls: []
+[call_llm] --- EXIT ---
